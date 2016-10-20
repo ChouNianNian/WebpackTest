@@ -1,0 +1,27 @@
+{
+  "name": "webpacktest",
+  "version": "1.0.0",
+  "description": "ceshi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acexyf/WebpackTest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acexyf/WebpackTest/issues"
+  },
+  "homepage": "https://github.com/acexyf/WebpackTest#readme",
+  "devDependencies": {
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "css-loader": "^0.25.0",
+    "style-loader": "^0.13.1"
+  }
+}
