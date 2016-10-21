@@ -1,1 +1,2 @@
 body { background: url(../images/demo.jpg) no-repeat; }
+@import url(./style1.css);
