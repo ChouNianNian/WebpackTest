@@ -1,10 +1,10 @@
-var webpack = require('webpack');
-var path = require('path')
+let webpack = require('webpack');
+let path = require('path');
+let ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     entry: {
-        index: [
-            './public/javascript/entry.js'
-        ]
+        index: './public/javascript/entry.js'
+
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -13,13 +13,16 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.css$/, loader: 'style!css' },
+            { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
             { test: /\.(png|jpg|gif)$/, loader: 'file-loader?limit=8192&name=../../public/images/[name].[ext]' },
-            { test: /\.js[x]?$/, loader: 'babel', exclude: /node_modules/ }
+            { test: /\.js[x]?$/, loader: 'babel' }
         ]
     },
     plugins: [
         //查找相等或近似的模块，避免在最终生成的文件中出现重复的模块
         // new webpack.optimize.DedupePlugin()
+        new webpack.optimize.CommonsChunkPlugin('common.js'),
+        new webpack.optimize.UglifyJsPlugin(),
+        new ExtractTextPlugin('[name].css', { allChunks: true })
     ]
 }
